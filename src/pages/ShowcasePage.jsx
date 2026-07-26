@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { TransitionLink } from '../components/DemoTransition';
+import SiteFooter from '../components/SiteFooter';
 import hotelHeaderImage from '../demos/hotel-lodge/header.png';
 
 const categories = [
@@ -26,9 +26,9 @@ function ShowcasePage() {
             The showcase is opening soon. Each experience is being prepared as a premium preview for the businesses we serve.
           </p>
           <div className="hero-actions">
-            <Link className="btn btn-primary" to="/">
+            <TransitionLink className="btn btn-primary" to="/">
               Return Home
-            </Link>
+            </TransitionLink>
           </div>
         </div>
         <div className="showcase-grid" style={{ marginTop: '1.5rem' }}>
@@ -52,6 +52,7 @@ function ShowcasePage() {
           ))}
         </div>
       </main>
+      <SiteFooter />
     </>
   );
 }
