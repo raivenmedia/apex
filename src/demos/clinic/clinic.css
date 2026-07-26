@@ -1,0 +1,851 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap');
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.clinic-shell {
+  --medical-blue: #1f5fb8;
+  --teal: #4fa7a3;
+  --green: #3dbb7d;
+  --bg: #f5f8fc;
+  --card: #ffffff;
+  --text: #14243a;
+  --muted: #5d7188;
+  --line: #dfe8f2;
+  --soft-blue: #ebf4ff;
+  --shadow: 0 20px 45px rgba(20, 36, 58, 0.08);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(180deg, #f7fbff 0%, var(--bg) 100%);
+  min-height: 100vh;
+}
+
+.clinic-shell *, .clinic-shell *::before, .clinic-shell *::after { box-sizing: border-box; }
+.clinic-shell a { color: inherit; text-decoration: none; }
+.clinic-shell button, .clinic-shell input, .clinic-shell select, .clinic-shell textarea { font: inherit; }
+
+.clinic-container {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.clinic-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  backdrop-filter: blur(16px);
+  background: rgba(245, 248, 252, 0.9);
+  border-bottom: 1px solid rgba(223, 232, 242, 0.9);
+}
+
+.clinic-topbar-inner {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+}
+
+.clinic-brand {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+.clinic-brand-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--medical-blue), var(--teal));
+  color: #fff;
+  font-weight: 900;
+}
+
+.clinic-brand strong {
+  display: block;
+  font: 900 0.9rem 'Nunito';
+  letter-spacing: .08em;
+}
+
+.clinic-brand small {
+  display: block;
+  margin-top: .1rem;
+  color: var(--muted);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.clinic-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: .74rem;
+  font-weight: 700;
+}
+
+.clinic-nav a:hover { color: var(--medical-blue); }
+.clinic-nav .clinic-pill {
+  padding: .8rem 1rem;
+  border-radius: 999px;
+  background: var(--medical-blue);
+  color: #fff !important;
+}
+
+.clinic-menu {
+  display: none;
+  border: 0;
+  padding: .7rem;
+  background: var(--card);
+  color: var(--medical-blue);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.clinic-hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+.clinic-hero-track {
+  display: flex;
+  width: 100%;
+  transition: transform .8s ease;
+}
+
+.clinic-hero-panel {
+  min-width: 100%;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.clinic-hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 2rem;
+  padding: 5rem 0 4rem;
+  align-items: center;
+}
+
+.clinic-hero-copy {
+  max-width: 640px;
+}
+
+.clinic-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .55rem .85rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.clinic-hero h1 {
+  margin: 1rem 0;
+  font: 900 clamp(2.5rem, 6vw, 4.4rem)/.95 'Nunito';
+  letter-spacing: -.05em;
+}
+
+.clinic-hero p {
+  margin: 0;
+  max-width: 560px;
+  color: rgba(255,255,255,.86);
+  line-height: 1.7;
+}
+
+.clinic-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+.clinic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  border: 0;
+  padding: .95rem 1.2rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.clinic-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(16, 42, 75, 0.2);
+}
+
+.clinic-button.primary { background: var(--green); color: #fff; }
+.clinic-button.secondary { background: #fff; color: var(--medical-blue); }
+
+.clinic-hero-card {
+  padding: 1.4rem;
+  border-radius: 24px;
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 24px 50px rgba(0,0,0,.16);
+}
+
+.clinic-hero-card h3 {
+  margin: 0 0 1rem;
+  font: 800 1.15rem 'Nunito';
+}
+
+.clinic-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .85rem;
+}
+
+.clinic-quick-item {
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.24);
+}
+
+.clinic-quick-item strong {
+  display: block;
+  margin-bottom: .35rem;
+  font-size: .85rem;
+}
+
+.clinic-quick-item span {
+  color: rgba(255,255,255,.8);
+  font-size: .72rem;
+}
+
+.clinic-hero-dots {
+  position: absolute;
+  bottom: 1.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: .6rem;
+}
+
+.clinic-hero-dots button {
+  width: 11px;
+  height: 11px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.45);
+  cursor: pointer;
+  padding: 0;
+}
+
+.clinic-hero-dots button.active {
+  background: #fff;
+  transform: scale(1.15);
+}
+
+.clinic-notice {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin: 1rem 0 0;
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  background: rgba(31,95,184,.06);
+  color: var(--muted);
+  font-size: .83rem;
+}
+
+.clinic-notice span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--soft-blue);
+  color: var(--medical-blue);
+  font-weight: 900;
+}
+
+.section-block { padding: 5.5rem 0; }
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.section-head h2 {
+  margin: .3rem 0 0;
+  color: var(--text);
+  font: 900 clamp(2rem, 4.8vw, 3.2rem)/.94 'Nunito';
+  letter-spacing: -.04em;
+}
+.section-head p {
+  max-width: 480px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--medical-blue);
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.section-kicker span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+.clinic-quick-access-section { padding-top: 3rem; }
+.clinic-quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.quick-access-card {
+  padding: 1.2rem;
+  border-radius: 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.quick-access-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 40px rgba(20, 36, 58, 0.11);
+}
+.quick-access-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--soft-blue);
+  font-size: 1.2rem;
+  margin-bottom: .8rem;
+}
+.quick-access-card h3 {
+  margin: 0 0 .35rem;
+  font: 800 1rem 'Nunito';
+}
+.quick-access-card p {
+  margin: 0;
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 1.25rem;
+  align-items: center;
+}
+.about-panel {
+  padding: 2rem;
+  border-radius: 28px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.about-panel p { color: var(--muted); line-height: 1.75; }
+.about-points { display: grid; gap: .95rem; margin-top: 1.3rem; }
+.about-points div {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: .8rem;
+  align-items: start;
+}
+.about-points span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--soft-blue);
+  color: var(--medical-blue);
+  font-size: 1.05rem;
+}
+.about-points strong { display: block; margin-bottom: .2rem; }
+.about-points p { margin: 0; }
+.about-visual {
+  min-height: 360px;
+  border-radius: 28px;
+  background: url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=84') center/cover;
+  box-shadow: var(--shadow);
+}
+
+.services-grid, .departments-grid, .doctor-grid, .packages-grid, .articles-grid, .gallery-grid, .contact-grid {
+  display: grid;
+  gap: 1rem;
+}
+.services-grid { grid-template-columns: repeat(3, 1fr); }
+.service-card, .department-card, .doctor-card, .package-card, .article-card, .gallery-card, .testimonial-card, .contact-card, .appointment-side, .appointment-form-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.service-card:hover, .department-card:hover, .doctor-card:hover, .package-card:hover, .article-card:hover, .gallery-card:hover { transform: translateY(-5px); }
+.service-media, .department-media, .article-media, .gallery-media, .doctor-photo {
+  background-position: center;
+  background-size: cover;
+}
+.service-media {
+  min-height: 180px;
+  border-radius: 20px 20px 0 0;
+}
+.service-content, .department-content, .doctor-content, .article-content, .gallery-caption {
+  padding: 1.2rem;
+}
+.service-content h3, .department-content h3, .doctor-content h3, .article-content h3 {
+  margin: .2rem 0 .45rem;
+  font: 800 1.08rem 'Nunito';
+}
+.service-content p, .department-content p, .doctor-content p, .article-content span, .gallery-caption, .contact-card p, .appointment-side p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+.service-content a { color: var(--medical-blue); font-weight: 800; }
+
+.departments-grid { grid-template-columns: repeat(2, 1fr); }
+.department-media {
+  min-height: 180px;
+  border-radius: 20px 20px 0 0;
+}
+.department-lead { margin: .35rem 0 .2rem; color: var(--medical-blue); font-weight: 700; }
+.department-hours { font-weight: 700; color: var(--text); }
+
+.doctor-grid { grid-template-columns: repeat(3, 1fr); }
+.doctor-card { overflow: hidden; }
+.doctor-photo { min-height: 280px; }
+.doctor-content span { color: var(--teal); font-size: .68rem; font-weight: 800; text-transform: uppercase; }
+.doctor-content .clinic-button { margin-top: 1rem; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.stat-card {
+  padding: 1.5rem;
+  border-radius: 24px;
+  text-align: center;
+  background: linear-gradient(145deg, var(--card), var(--soft-blue));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.stat-card strong {
+  display: block;
+  font: 800 2rem 'Nunito';
+  color: var(--medical-blue);
+}
+.stat-card span {
+  display: block;
+  margin-top: .35rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.packages-grid { grid-template-columns: repeat(5, 1fr); }
+.package-card { padding: 1.4rem; }
+.package-card .tag {
+  display: inline-flex;
+  margin-bottom: .8rem;
+  color: var(--medical-blue);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.package-card h3 { margin: 0 0 .25rem; font: 800 1.05rem 'Nunito'; }
+.package-card .price {
+  display: block;
+  font: 900 2rem 'Nunito';
+  color: var(--teal);
+}
+.package-card p { color: var(--muted); line-height: 1.7; }
+.package-note {
+  margin-top: .8rem;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--medical-blue);
+}
+
+.testimonial-shell {
+  display: grid;
+  gap: 1rem;
+}
+.testimonial-card {
+  padding: 2rem;
+  border-radius: 24px;
+}
+.testimonial-card blockquote {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+.testimonial-card footer {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+.testimonial-card footer span { color: var(--muted); }
+.testimonial-rating { color: var(--green); letter-spacing: .22em; margin-bottom: 1rem; }
+.testimonial-nav {
+  display: flex;
+  gap: .8rem;
+}
+.testimonial-nav button {
+  border: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--medical-blue);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.articles-grid { grid-template-columns: repeat(4, 1fr); }
+.article-card { overflow: hidden; }
+.article-media { min-height: 160px; }
+.article-content span { font-size: .74rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--medical-blue); }
+
+.gallery-grid { grid-template-columns: repeat(3, 1fr); }
+.gallery-media { min-height: 220px; border-radius: 18px 18px 0 0; }
+.gallery-caption { padding: 1rem 1.2rem 1.2rem; font-weight: 700; }
+
+.appointment-layout {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 1rem;
+}
+.appointment-side, .appointment-form-card { padding: 1.5rem; }
+.appointment-side h3, .appointment-form-card h3, .contact-card h3, .clinic-footer h3, .clinic-footer h4 {
+  margin-top: 0;
+  font: 800 1.1rem 'Nunito';
+}
+.hours-list { display: grid; gap: .65rem; margin: 1rem 0 1.4rem; }
+.hours-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--line);
+}
+.hours-list span { color: var(--muted); }
+.hours-list strong { font-weight: 800; }
+.appointment-form { display: grid; gap: .9rem; }
+.appointment-form label { display: grid; gap: .45rem; color: var(--muted); font-weight: 700; }
+.appointment-form input, .appointment-form select, .appointment-form textarea, .newsletter-row input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: .85rem 1rem;
+  background: #fbfdff;
+}
+.appointment-form textarea { min-height: 110px; resize: vertical; }
+.form-note { color: var(--muted); font-size: .8rem; }
+.booking-success { padding: .8rem 1rem; border-radius: 14px; background: rgba(61, 187, 125, .12); color: #1f7d4f; font-weight: 700; }
+
+.contact-grid { grid-template-columns: repeat(2, 1fr); }
+.contact-card { padding: 1.4rem; }
+.map-placeholder {
+  margin-top: 1rem;
+  min-height: 170px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--soft-blue), #f8fbff);
+  color: var(--medical-blue);
+  font-weight: 800;
+}
+
+.clinic-footer {
+  padding: 3rem 0 2rem;
+  margin-top: 2rem;
+  background: #0f1f31;
+  color: rgba(255,255,255,.88);
+}
+.clinic-footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr .8fr 1fr;
+  gap: 1rem;
+}
+.clinic-footer a, .clinic-footer p { color: inherit; display: block; margin: .35rem 0; }
+.newsletter-row { display: flex; gap: .65rem; }
+.newsletter-row button {
+  border: 0;
+  padding: .8rem 1rem;
+  border-radius: 14px;
+  background: var(--green);
+  color: #fff;
+  font-weight: 800;
+}
+.clinic-footer-note {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.62);
+  font-size: .9rem;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.service-card, .department-card, .doctor-card, .package-card, .article-card, .gallery-card, .quick-access-card, .testimonial-card, .contact-card, .appointment-side, .appointment-form-card, .about-panel, .stat-card {
+  animation: fadeUp .7s ease both;
+}
+
+@media (max-width: 1000px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .doctor-grid { grid-template-columns: repeat(2, 1fr); }
+  .packages-grid { grid-template-columns: repeat(3, 1fr); }
+  .articles-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .clinic-footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 860px) {
+  .clinic-menu { display: inline-flex; }
+  .clinic-nav {
+    position: absolute;
+    top: calc(100% + .7rem);
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 18px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: all .25s ease;
+  }
+  .clinic-nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .clinic-hero-inner, .about-grid, .appointment-layout, .contact-grid { grid-template-columns: 1fr; }
+  .clinic-quick-access-grid, .stats-grid, .packages-grid, .services-grid, .doctor-grid, .departments-grid { grid-template-columns: repeat(2, 1fr); }
+  .section-head { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 640px) {
+  .clinic-container { width: min(100% - 1.3rem, 1200px); }
+  .clinic-hero-panel { min-height: 72vh; }
+  .clinic-hero-inner { padding: 3.5rem 0 4rem; }
+  .clinic-quick-grid { grid-template-columns: 1fr; }
+  .clinic-quick-access-grid, .stats-grid, .packages-grid, .services-grid, .doctor-grid, .departments-grid, .articles-grid, .gallery-grid, .contact-grid, .clinic-footer-grid { grid-template-columns: 1fr; }
+  .section-block { padding: 4.2rem 0; }
+  .appointment-layout { gap: .8rem; }
+  .newsletter-row { flex-direction: column; }
+  .clinic-action-row { flex-direction: column; }
+  .clinic-button { width: 100%; }
+}
+
+.tips-grid { grid-template-columns: repeat(3, 1fr); }
+.tip-card { padding: 1.5rem; }
+.tip-card span { color: var(--green); font-size: .68rem; font-weight: 800; text-transform: uppercase; }
+.tip-card h3 { margin: .76rem 0 .5rem; font: 800 1.05rem 'Nunito'; }
+.tip-card p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.65; }
+
+.testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+.testimonial-card { padding: 1.5rem; }
+.testimonial-card blockquote { margin: 0 0 1rem; font: 700 1.05rem/1.65 'Nunito'; }
+.testimonial-card footer { color: var(--muted); font-size: .76rem; }
+
+.faq-grid { grid-template-columns: repeat(2, 1fr); }
+.faq-item { padding: 1.35rem; }
+.faq-item strong { display: block; margin-bottom: .45rem; font: 800 1rem 'Nunito'; }
+.faq-item p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.65; }
+
+.insurance-strip {
+  border: 1px dashed var(--line);
+  border-radius: 18px;
+  background: #fff;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.insurance-strip span { color: var(--muted); font-size: .72rem; font-weight: 800; }
+.insurance-badges {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+.insurance-badges strong {
+  padding: .5rem .7rem;
+  border-radius: 999px;
+  background: var(--soft-blue);
+  color: var(--medical-blue);
+  font-size: .68rem;
+}
+
+.appointment-layout {
+  display: grid;
+  grid-template-columns: .82fr 1.18fr;
+  gap: 1rem;
+}
+.appointment-side,
+.appointment-form-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+}
+.appointment-side { padding: 1.6rem; }
+.appointment-side h3, .appointment-form-card h3 { margin: 0 0 .8rem; font: 800 1.5rem 'Nunito'; }
+.appointment-side p, .appointment-form-card p { color: var(--muted); font-size: .78rem; line-height: 1.65; }
+.hours-list { display: grid; gap: .8rem; margin-top: 1rem; }
+.hours-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .8rem 0;
+  border-top: 1px solid var(--line);
+  font-size: .76rem;
+}
+.hours-list strong { color: var(--medical-blue); }
+
+.appointment-form-card { padding: 1.5rem; }
+.appointment-form { display: grid; gap: 1rem; }
+.appointment-form > div { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.appointment-form label {
+  display: grid;
+  gap: .35rem;
+  color: var(--muted);
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.appointment-form input, .appointment-form select, .appointment-form textarea {
+  width: 100%;
+  padding: .9rem .95rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--text);
+  outline: 0;
+}
+.appointment-form textarea { min-height: 110px; resize: vertical; }
+.form-note {
+  color: var(--muted);
+  font-size: .68rem;
+}
+.booking-success {
+  margin-top: 1rem;
+  padding: .9rem 1rem;
+  border-radius: 14px;
+  background: #e9f8ef;
+  color: #1d6d3c;
+  font-weight: 700;
+  font-size: .78rem;
+}
+
+.contact-grid { grid-template-columns: 1fr 1fr; }
+.contact-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 1.6rem;
+  box-shadow: var(--shadow);
+}
+.contact-card h3 { margin: .4rem 0 .8rem; font: 800 1.2rem 'Nunito'; }
+.contact-card p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.65; }
+.map-placeholder {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #edf5ff, #f3fbf7);
+  color: var(--medical-blue);
+  font: 800 1rem 'Nunito';
+}
+
+.clinic-footer {
+  padding: 1.5rem 0 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: .72rem;
+}
+
+@media (max-width: 980px) {
+  .clinic-hero-inner,
+  .appointment-layout,
+  .about-grid,
+  .contact-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .doctor-grid, .packages-grid, .tips-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+  .departments-grid { grid-template-columns: repeat(2, 1fr); }
+  .reason-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 720px) {
+  .clinic-topbar-inner { min-height: 68px; }
+  .clinic-menu { display: inline-flex; border: 0; background: transparent; font-size: 1.4rem; color: var(--medical-blue); }
+  .clinic-nav { display: none; position: absolute; top: 68px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 1rem; background: #fff; border-bottom: 1px solid var(--line); }
+  .clinic-nav.open { display: flex; }
+  .clinic-nav a { padding: .85rem; }
+  .clinic-hero-inner { padding-top: 3.5rem; gap: 2rem; }
+  .clinic-quick-grid,
+  .clinic-stats,
+  .services-grid,
+  .doctor-grid,
+  .packages-grid,
+  .tips-grid,
+  .testimonials-grid,
+  .faq-grid,
+  .departments-grid,
+  .reason-list,
+  .appointment-form > div { grid-template-columns: 1fr; }
+  .section-block { padding: 5rem 0; }
+  .section-head { display: block; }
+  .section-head p { margin-top: 1rem; }
+  .clinic-notice { align-items: flex-start; line-height: 1.5; }
+  .appointment-form-card, .appointment-side, .about-panel { padding: 1.2rem; }
+  .clinic-container { width: min(1180px, calc(100% - 1.2rem)); }
+}
