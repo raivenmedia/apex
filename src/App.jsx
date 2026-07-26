@@ -22,6 +22,7 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    document.body.classList.remove('transition-active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [pathname]);
 

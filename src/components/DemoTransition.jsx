@@ -31,6 +31,7 @@ function FullScreenDemoTransition({ destination, isActive, onComplete }) {
       window.clearTimeout(timerTwo);
       window.clearTimeout(timerThree);
       window.clearTimeout(timerFour);
+      document.body.classList.remove('transition-active');
     };
   }, [destination, isActive, navigate, onComplete]);
 
