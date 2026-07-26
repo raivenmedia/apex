@@ -51,7 +51,7 @@ function ContactPage() {
             <article className="card">
               <h2>Direct Contact</h2>
               <ul className="package-list">
-                <li>Email: hello@apexcoletech.com</li>
+                <li>Email: raivenmedia@gmail.com</li>
                 <li>Phone: +260 777 909 863</li>
                 <li>Business Hours: Monday - Friday, 08:00 - 17:00</li>
                 <li>Office Location: Lusaka, Zambia (Placeholder)</li>

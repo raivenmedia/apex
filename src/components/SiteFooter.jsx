@@ -35,7 +35,7 @@ function SiteFooter() {
               <a href="https://wa.me/260777909863" target="_blank" rel="noreferrer">WhatsApp</a>
             </li>
             <li>
-              <a href="mailto:hello@apexcoletech.com">hello@apexcoletech.com</a>
+              <a href="mailto:raivenmedia@gmail.com">raivenmedia@gmail.com</a>
             </li>
           </ul>
         </div>
